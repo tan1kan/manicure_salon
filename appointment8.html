@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на Маникюр</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ffb6c1;
+        }
+        .confirmation {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Запись на Маникюр</h1>
+        <p id="selected-date-time">Выбрали: <span id="chosen-date"></span> в <span id="chosen-time"></span></p>
+
+        <form id="appointment-form">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="button" id="confirm-button">Подтвердить Запись</button>
+        </form>
+
+        <div class="confirmation" id="confirmation-message">
+            <p>Ваши данные подтверждены:</p>
+            <p>Имя: <span id="confirm-name"></span></p>
+            <p>Телефон: <span id="confirm-phone"></span></p>
+            <button id="submit-button">Записаться!</button>
+        </div>
+    </div>
+
+   <script>
+    // Получаем параметры даты и времени из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const chosenDate = urlParams.get('date');
+    const chosenTime = urlParams.get('time');
+    
+    document.getElementById('chosen-date').innerText = chosenDate;
+    document.getElementById('chosen-time').innerText = chosenTime;
+
+    const confirmButton = document.getElementById('confirm-button');
+    const confirmationMessage = document.getElementById('confirmation-message');
+    const submitButton = document.getElementById('submit-button');
+
+    // Обработка нажатия на кнопку подтверждения
+    confirmButton.addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+
+        // Заполняем и показываем данные пользователя для подтверждения
+        document.getElementById('confirm-name').innerText = name;
+        document.getElementById('confirm-phone').innerText = phone;
+        confirmationMessage.style.display = 'block';
+    });
+
+    // Обработка нажатия на кнопку "Записаться!"
+    submitButton.addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+
+        // Отправка данных на сервер
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('date', chosenDate);
+        formData.append('time', chosenTime);
+
+        fetch('appointment_handler.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === 'success') {
+                alert('Запись успешно подтверждена! Мы свяжемся с вами для уточнения деталей.');
+                window.location.href = 'index.html';
+            } else {
+                alert('Ошибка при записи. Пожалуйста, войдите в систему.');
+                window.location.href = 'login.html';
+            }
+        })
+        .catch(error => {
+            alert('Ошибка сети: ' + error);
+        });
+    });
+</script>
+
+</body>
+</html>

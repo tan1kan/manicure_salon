@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Салон Красоты "Маникюрный мастер"</title>
+    <link rel="stylesheet" href="1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Салон красоты "Маникюрный мастер"</h1>
+        <nav class="navbar">
+    <a href="#services" class="nav-link">Услуги</a>
+    <a href="#portfolio" class="nav-link">Работы</a>
+    <a href="#schedule" class="nav-link">Время записи</a>
+    <a href="#reviews" class="nav-link">Отзывы</a>
+    <a href="#contact" class="nav-link">Контакты</a>
+</nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="intro" id="services">
+        <h2>Наши Услуги</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Маникюр</h3>
+                <p>Классический маникюр с идеальным покрытием.</p>
+            </div>
+            <div class="service-item">
+                <h3>Гелевое покрытие</h3>
+                <p>Долговечное гелевое покрытие для ваших ногтей.</p>
+            </div>
+            <div class="service-item">
+                <h3>Нейл-арт</h3>
+                <p>Индивидуальные дизайны для вашего маникюра.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>Наши Работы</h2>
+        <div class="portfolio-grid">
+            <img src="images/manicure1.jpg" alt="Работа 1">
+            <img src="images/manicure2.jpg" alt="Работа 2">
+            <img src="images/manicure3.jpg" alt="Работа 3">
+            <img src="images/manicure4.jpg" alt="Работа 4">
+        </div>
+    </section>
+
+    <section class="schedule" id="schedule">
+        <h2>Время Записи на Услуги</h2>
+        <p>Мы работаем Пн-Пт 09:00 - 20:00</p>
+        <p>Сб-Вс 10:00 - 18:00</p>
+        <p>Вы можете записаться на следующие слоты:</p>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Доступные Временные Слоты</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>14 мая</td>
+                    <td>
+                        <ul>
+                            <li><a href="appointment.html" class="time-slot">09:00</a></li>
+                            <li><a href="appointment2.html" class="time-slot">11:00</a></li>
+                            <li><a href="appointment3.html" class="time-slot">13:00</a></li>
+                            <li><a href="appointment4.html" class="time-slot">17:00</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 мая</td>
+                    <td>
+                        <ul>
+                            <li><a href="appointment5.html" class="time-slot">09:00</a></li>
+                            <li><a href="appointment6.html" class="time-slot">11:00</a></li>
+                            <li><a href="appointment7.html" class="time-slot">13:00</a></li>
+                            <li><a href="appointment8.html" class="time-slot">17:00</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- Продолжите с остальными датами -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Другие секции (например, отзывы и контакты) -->
+
+        <section class="reviews" id="reviews">
+            <h2>Отзывы наших клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="images/client1.jpg" alt="Клиент 1">
+                    <p>"Отличный сервис, мастера очень профессиональны! Рекомендую!"</p>
+                    <span>- Анна</span>
+                </div>
+                <div class="review-card">
+                    <img src="images/client2.jpg" alt="Клиент 2">
+                    <p>"Я в восторге от результата! Обязательно приду снова."</p>
+                    <span>- Мария</span>
+                </div>
+                <div class="review-card">
+                    <img src="images/client3.jpg" alt="Клиент 3">
+                    <p>"Прекрасная атмосфера и очень дружелюбные мастера!"</p>
+                    <span>- Екатерина</span>
+                </div>
+                <div class="review-card">
+                    <img src="images/client4.jpg" alt="Клиент 4">
+                    <p>"Всегда ухожу с прекрасным настроением и красивыми руками!"</p>
+                    <span>- Ольга</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h3>Запишитесь прямо сейчас!</h3>
+            <a href="appointment.html" class="cta-button">Записаться</a>
+        </section>
+    </main>
+
+    <section id="contact">
+  <h2>Контакты</h2>
+  <div class="contact-info">
+    <p><strong>Адрес:</strong> Поселок Молодежный, 1/2, Иркутская область 1 этаж</p>
+    <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+    <p><strong>Email:</strong>  master.manikyur@example.com</p>
+    <p><strong>Время работы:</strong> Пн-Пт 09:00 - 20:00</p>
+    <p>Сб-Вс 10:00 - 18:00</p>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer">
+    <div class="container">
+                <p>© 2025 салон красоты "Маникюрный мастер". Все права защищены.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
